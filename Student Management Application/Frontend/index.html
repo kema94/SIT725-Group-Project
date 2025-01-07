@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Management Dashboard</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Add your styles here */
+      .container {
+        display: flex;
+      }
+      .sidebar {
+        width: 250px;
+        background-color: #333;
+        color: #fff;
+        height: 100vh;
+      }
+      .main-content {
+        flex: 1;
+        padding: 20px;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      .nav-item {
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      .nav-item:hover {
+        background-color: #444;
+      }
+      .active {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!--Sidebar--->
+      <div class="sidebar">
+        <div class="logo">
+          <i class="fas fa-graduation-cap"></i>
+          EduManager
+        </div>
+
+        <div class="nav-item active" data-section="dashboard">
+          <i class="fas fa-chart-pie"></i>
+          Dashboard
+        </div>
+        <div class="nav-item" data-section="students">
+          <i class="fas fa-users"></i>
+          Students
+        </div>
+        <div class="nav-item" data-section="courses">
+          <i class="fas fa-book"></i>
+          Courses
+        </div>
+        <div class="nav-item" data-section="reports">
+          <i class="fas fa-chart-bar"></i>
+          Reports
+        </div>
+        <div class="nav-item" data-section="settings">
+          <i class="fas fa-cog"></i>
+          Settings
+        </div>
+      </div>
+      <!--Main Content-->
+      <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search students..." />
+          </div>
+          <div class="user-profile">
+            <div class="user-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <span>Admin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Navigation Script
+      document.querySelectorAll(".nav-item").forEach((item) => {
+        item.addEventListener("click", function () {
+          document.querySelectorAll(".nav-item").forEach((nav) => {
+            nav.classList.remove("active");
+          });
+          this.classList.add("active");
+          const section = this.getAttribute("data-section");
+          console.log("Switching to section:", section); // Update content dynamically
+        });
+      });
+    </script>
+  </body>
+</html>
